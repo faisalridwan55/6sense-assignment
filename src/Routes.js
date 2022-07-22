@@ -1,20 +1,20 @@
 import { Route } from "react-router-dom"
+import Teams from "./containers/Teams";
 
-const Dummy = () => <h1>This is just dummy component</h1>;
 
 const routesList = [
     {
         path: '/',
         options: {
             exact: true,
-            component: Dummy
+            component: Teams
         }
     }
 ];
 
 const Routes = (
     <>
-        {routesList.map(({path, options}) => <Route path={path} {...options} />)}
+        {routesList.map(({path, options}, i) => <Route key={i} path={path} {...options} />)}
     </>
 );
 
