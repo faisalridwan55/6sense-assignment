@@ -3,9 +3,9 @@ import { api } from "../../api";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   const [activities, setActivities] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
-  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -20,6 +20,7 @@ const Teams = () => {
     };
 
     fetchData();
+
     setLoading(false);
   }, []);
 
@@ -27,7 +28,7 @@ const Teams = () => {
   console.log(activities);
   console.log(currentUser);
 
-  return <div>TEST</div>;
+  return <div>teams</div>;
 };
 
 export default Teams;

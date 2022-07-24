@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Switch } from "react-router-dom";
+import Frame from "./components/Frame";
 import Routes from "./Routes";
 
 function App() {
   return (
     <div className="App">
-      <h1>This is just basic template with react-router installed</h1>
       <Router>
         <div className="content">
-          <Switch>
-            {Routes}
-          </Switch>
+          <Frame>
+            <Switch>{Routes}</Switch>
+          </Frame>
         </div>
       </Router>
     </div>
