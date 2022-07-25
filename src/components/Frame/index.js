@@ -5,7 +5,9 @@ const Frame = (props) => {
   return (
     <Row minHeight="100vh">
       <Sidebar />
-      {props.children}
+      <div>
+        {props.children}
+      </div>
     </Row>
   );
 };
