@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../api";
 import Card from "../../components/Card";
 import { Row } from "../../components/Grid";
+import TeamsCard from "./components/TeamCard";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
@@ -32,9 +33,7 @@ const Teams = () => {
 
   return (
     <Row margin="16px">
-      <Card>
-        TEAMS
-      </Card>  
+      <TeamsCard containerWidth='70%' teamsData={teams} />
     </Row>
   );
 };
