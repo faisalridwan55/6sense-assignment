@@ -3,6 +3,7 @@ import styled from "styled-components";
 const BasicContainer = styled.div`
   display: flex;
   ${(props) => props.width && `width: ${props.width}`};
+  ${(props) => props.color && `color: ${props.color}`};
   ${(props) => props.height && `height: ${props.height}`};
   ${(props) => props.minHeight && `min-height: ${props.minHeight}`};
   ${(props) => props.alignItems && `align-items: ${props.alignItems}`};
@@ -16,6 +17,7 @@ const BasicContainer = styled.div`
   ${(props) => props.marginBottom && `margin-bottom: ${props.marginBottom}`};
   ${(props) => props.marginLeft && `margin-left: ${props.marginLeft}`};
   ${(props) => props.background && `background: ${props.background}`};
+  ${(props) => props.fontSize && `font-size: ${props.fontSize}`};
 `;
 
 export const Box = (props) => (
