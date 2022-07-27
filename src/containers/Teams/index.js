@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { api } from "../../api";
-import Card from "../../components/Card";
-import { Row } from "../../components/Grid";
+import { Fragment } from "react/cjs/react.production.min";
+
 import TeamsCard from "./components/TeamCard";
+import ActivityCard from "./components/ActivityCard";
+
+import { api } from "../../api";
+import { Row } from "../../components/Grid";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
@@ -32,8 +35,13 @@ const Teams = () => {
   console.log(currentUser);
 
   return (
-    <Row margin="16px">
-      <TeamsCard containerWidth='70%' teamsData={teams} />
+    <Row padding="32px" justifyContent="space-between">
+      {teams && activities && currentUser && (
+        <Fragment>
+          <TeamsCard containerWidth="70%" teamsData={teams} />
+          <ActivityCard containerWidth="27%" activities={activities} />
+        </Fragment>
+      )}
     </Row>
   );
 };
