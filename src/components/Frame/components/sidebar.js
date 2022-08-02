@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { Box } from "../../Grid";
+import useMyLocation from "../../../hooks/useMyLocation";
 
 const Sidebar = () => {
   const history = useHistory();
-  const location = useLocation().pathname.replace("/", "");
+  const location = useMyLocation();
 
   const pathStyle = {
     whileHover: {

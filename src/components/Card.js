@@ -5,6 +5,9 @@ export const Card = styled(Box)`
   background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05), 0px 0px 30px rgba(0, 0, 0, 0.1);
   height: fit-content;
+  ${(props) => props.row && `flex-direction: row`};
+  ${(props) =>
+    props.height ? `height: ${props.height}` : `height: fit-content`};
 `;
 
 export const CardHeader = (props) => (

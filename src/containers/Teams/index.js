@@ -9,12 +9,12 @@ import { Row } from "../../components/Grid";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const [isLoading, setLoading] = useState(false);
+  // const [isLoading, setLoading] = useState(false);
   const [activities, setActivities] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     const fetchData = async () => {
       const {
         data: { teams, activities, current_user },
@@ -27,7 +27,7 @@ const Teams = () => {
 
     fetchData();
 
-    setLoading(false);
+    // setLoading(false);
   }, []);
 
   console.log(teams);
