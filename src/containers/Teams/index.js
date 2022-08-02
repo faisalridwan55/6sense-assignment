@@ -1,42 +1,20 @@
-import { useEffect, useState } from "react";
-import { Fragment } from "react/cjs/react.production.min";
+import { useContext } from "react";
 
 import TeamsCard from "./components/TeamCard";
 import ActivityCard from "./components/ActivityCard";
 
-import { api } from "../../api";
 import { Row } from "../../components/Grid";
+import { AppContext } from "../../contexts/AppContext";
 
 const Teams = () => {
-  const [teams, setTeams] = useState([]);
-  // const [isLoading, setLoading] = useState(false);
-  const [activities, setActivities] = useState([]);
-  const [currentUser, setCurrentUser] = useState({});
-
-  useEffect(() => {
-    // setLoading(true);
-    const fetchData = async () => {
-      const {
-        data: { teams, activities, current_user },
-      } = await api.get("/getData");
-
-      setTeams(teams);
-      setActivities(activities);
-      setCurrentUser(current_user);
-    };
-
-    fetchData();
-
-    // setLoading(false);
-  }, []);
+  const { teams, activities } = useContext(AppContext);
 
   console.log(teams);
   console.log(activities);
-  console.log(currentUser);
 
   return (
     <Row padding="24px" justifyContent="center" gap="24px">
-      {teams && activities && currentUser && (
+      {teams && activities && (
         <>
           <TeamsCard containerWidth="75%" teamsData={teams} />
           <ActivityCard containerWidth="25%" activities={activities} />
