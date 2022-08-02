@@ -1,10 +1,30 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
+import { motion } from "framer-motion";
 
 import { Card } from "../../Card";
 import { Box, Row } from "../../Grid";
 import useMyLocation from "../../../hooks/useMyLocation";
+import { AppContext } from "../../../contexts/AppContext";
 
 const borderStyle = "1px solid rgba(0, 0, 0, 0.1)";
+
+const DropDownIcon = () => (
+  <svg
+    width="10"
+    height="5"
+    viewBox="0 0 10 5"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      opacity="0.2"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M0.757324 0H9.24261L4.99996 4.24264L0.757324 0Z"
+      fill="black"
+    />
+  </svg>
+);
 
 const MailIcon = () => (
   <svg
@@ -47,6 +67,9 @@ const MailIcon = () => (
 
 const Header = (props) => {
   const location = useMyLocation();
+  const {
+    currentUser: { name, avatar, notifications_count: notificationsCount },
+  } = useContext(AppContext);
 
   const printedLocation = useMemo(() => {
     return location.charAt(0).toUpperCase() + location.slice(1) || "Teams";
@@ -66,17 +89,57 @@ const Header = (props) => {
           NARWHAL
         </Box>
         <Box width="100%" padding="0px 24px" justifyContent="center">
-          <Row justifyContent="space-between">
+          <Row justifyContent="space-between" alignItems="center">
             <Box>{printedLocation}</Box>
             <Box>
-              <Row>
-                <Box>
+              <Row justifyContent="center" alignItems="center" gap="8px">
+                <Box
+                  as={motion.div}
+                  width="36px"
+                  height="36px"
+                  position="relative"
+                  alignItems="center"
+                  justifyContent="center"
+                  whileHover={{
+                    cursor: "pointer",
+                    backgroundColor: "rgba(0,0,0,.05)",
+                  }}
+                >
+                  <Row
+                    top="-8px"
+                    width="18px"
+                    right="-5px"
+                    height="18px"
+                    color="white"
+                    alignItems="center"
+                    position="absolute"
+                    justifyContent="center"
+                    style={{
+                      borderRadius: "50%",
+                      background: "#2995DA",
+                      border: "2px solid white",
+                    }}
+                  >
+                    3
+                  </Row>
                   <MailIcon />
-                  <div></div>
                 </Box>
-                <Box></Box>
-                <Box></Box>
-                <Box></Box>
+                <Box opacity=".5">{`Hello, ${name}`}</Box>
+                <Box>
+                  <img
+                    src={avatar}
+                    alt="avatar"
+                    sizes="36px"
+                    style={{
+                      width: "36px",
+                      borderRadius: "50%",
+                      border: "1px solid rgba(0,0,0,.25)",
+                    }}
+                  />
+                </Box>
+                <Box>
+                  <DropDownIcon />
+                </Box>
               </Row>
             </Box>
           </Row>

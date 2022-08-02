@@ -14,12 +14,8 @@ const Teams = () => {
 
   return (
     <Row padding="24px" justifyContent="center" gap="24px">
-      {teams && activities && (
-        <>
-          <TeamsCard containerWidth="75%" teamsData={teams} />
-          <ActivityCard containerWidth="25%" activities={activities} />
-        </>
-      )}
+      <TeamsCard containerWidth="75%" teamsData={teams} />
+      <ActivityCard containerWidth="25%" activities={activities} />
     </Row>
   );
 };

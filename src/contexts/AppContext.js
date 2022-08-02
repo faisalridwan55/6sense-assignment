@@ -4,7 +4,7 @@ const { createContext, useState, useEffect } = require("react");
 
 export const AppContext = createContext();
 
-const AppProvider = (props) => {
+const AppProvider = ({ children }) => {
   const [teams, setTeams] = useState([]);
   // const [isLoading, setLoading] = useState(false);
   const [activities, setActivities] = useState([]);
@@ -28,10 +28,9 @@ const AppProvider = (props) => {
   }, []);
 
   return (
-    <AppContext.Provider
-      value={{ teams, activities, currentUser }}
-      {...props}
-    />
+    <AppContext.Provider value={{ teams, activities, currentUser }}>
+      {teams && activities && currentUser && children}
+    </AppContext.Provider>
   );
 };
 
