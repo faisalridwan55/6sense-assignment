@@ -4,6 +4,7 @@ import { Box, Row } from "./Grid";
 export const Card = styled(Box)`
   background: #ffffff;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05), 0px 0px 30px rgba(0, 0, 0, 0.1);
+  height: fit-content;
 `;
 
 export const CardHeader = (props) => (
@@ -22,7 +23,7 @@ export const CardBody = (props) => {
     style: {
       flexWrap: props.wrap ? "wrap" : "no-wrap",
       padding: "24px",
-      justifyContent: "flex-start",
+      justifyContent: "center",
       gap: "16px",
     },
     ...props,

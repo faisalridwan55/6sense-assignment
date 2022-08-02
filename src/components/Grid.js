@@ -3,6 +3,9 @@ import styled from "styled-components";
 const BasicContainer = styled.div`
   display: flex;
   ${(props) => props.width && `width: ${props.width}`};
+  ${(props) => props.minWidth && `min-width: ${props.minWidth}`};
+  ${(props) => props.flex && `flex: ${props.flex}`};
+  ${(props) => props.gap && `gap: ${props.gap}`};
   ${(props) => props.color && `color: ${props.color}`};
   ${(props) => props.height && `height: ${props.height}`};
   ${(props) => props.minHeight && `min-height: ${props.minHeight}`};

@@ -35,12 +35,12 @@ const Teams = () => {
   console.log(currentUser);
 
   return (
-    <Row padding="32px" justifyContent="space-between">
+    <Row padding="24px" justifyContent="center" gap="24px">
       {teams && activities && currentUser && (
-        <Fragment>
-          <TeamsCard containerWidth="70%" teamsData={teams} />
-          <ActivityCard containerWidth="27%" activities={activities} />
-        </Fragment>
+        <>
+          <TeamsCard containerWidth="75%" teamsData={teams} />
+          <ActivityCard containerWidth="25%" activities={activities} />
+        </>
       )}
     </Row>
   );

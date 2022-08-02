@@ -30,7 +30,7 @@ const Sidebar = () => {
   );
 
   return (
-    <Box width="80px" background="#042235">
+    <Box width="80px" minWidth="80px" background="#042235">
       <Box>
         <IconContainer>
           {/* Main Logo */}
