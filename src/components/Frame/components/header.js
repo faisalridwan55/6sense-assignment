@@ -120,7 +120,7 @@ const Header = (props) => {
                       border: "2px solid white",
                     }}
                   >
-                    3
+                    {notificationsCount}
                   </Row>
                   <MailIcon />
                 </Box>
