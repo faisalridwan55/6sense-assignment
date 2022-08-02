@@ -18,8 +18,8 @@ const DropDownIcon = () => (
   >
     <path
       opacity="0.2"
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M0.757324 0H9.24261L4.99996 4.24264L0.757324 0Z"
       fill="black"
     />

@@ -1,17 +1,16 @@
-import { api } from "../api";
+import { createContext, useState, useEffect } from "react";
 
-const { createContext, useState, useEffect } = require("react");
+import { api } from "../api";
 
 export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [teams, setTeams] = useState([]);
-  // const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [activities, setActivities] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    // setLoading(true);
     const fetchData = async () => {
       const {
         data: { teams, activities, current_user },
@@ -20,16 +19,15 @@ const AppProvider = ({ children }) => {
       setTeams(teams);
       setActivities(activities);
       setCurrentUser(current_user);
+      setLoading(false);
     };
 
     fetchData();
-
-    // setLoading(false);
   }, []);
 
   return (
-    <AppContext.Provider value={{ teams, activities, currentUser }}>
-      {teams && activities && currentUser && children}
+    <AppContext.Provider value={{ teams, activities, currentUser, isLoading }}>
+      {children}
     </AppContext.Provider>
   );
 };
