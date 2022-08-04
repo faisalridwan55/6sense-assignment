@@ -1,10 +1,10 @@
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 
 import { Card } from "../../Card";
 import { Box, Row } from "../../Grid";
-import useMyLocation from "../../../hooks/useMyLocation";
 import { AppContext } from "../../../contexts/AppContext";
+import usePrintedLocation from "../../../hooks/usePrintedLocation";
 
 const borderStyle = "1px solid rgba(0, 0, 0, 0.1)";
 
@@ -66,18 +66,15 @@ const MailIcon = () => (
 );
 
 const Header = (props) => {
-  const location = useMyLocation();
   const {
     currentUser: { name, avatar, notifications_count: notificationsCount },
   } = useContext(AppContext);
 
-  const printedLocation = useMemo(() => {
-    return location.charAt(0).toUpperCase() + location.slice(1) || "Teams";
-  }, [location]);
+  const printedLocation = usePrintedLocation();
 
   return (
     <Card>
-      <Row height="80px" style={{ borderBottom: borderStyle }}>
+      <Row height="60px" style={{ borderBottom: borderStyle }}>
         <Box
           padding="0 24px"
           justifyContent="center"
@@ -155,7 +152,6 @@ const Header = (props) => {
           </Row>
         </Box>
       </Row>
-      <Row>TEST</Row>
     </Card>
   );
 };

@@ -1,5 +1,9 @@
 import { Route } from "react-router-dom";
+
+import Leads from "./containers/Leads";
 import Teams from "./containers/Teams";
+import Campaign from "./containers/Campaigns";
+import Report from "./containers/Reports";
 
 const routesList = [
   {
@@ -13,21 +17,21 @@ const routesList = [
     path: "/campaign",
     options: {
       exact: true,
-      component: () => <div>campaign</div>,
+      component: Campaign,
     },
   },
   {
     path: "/leads",
     options: {
       exact: true,
-      component: () => <div>leads</div>,
+      component: Leads,
     },
   },
   {
     path: "/report",
     options: {
       exact: true,
-      component: () => <div>report</div>,
+      component: Report,
     },
   },
 ];
