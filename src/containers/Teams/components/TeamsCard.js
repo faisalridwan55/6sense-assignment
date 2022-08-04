@@ -4,7 +4,7 @@ import LinesEllipsis from "react-lines-ellipsis";
 import { Box, Row } from "../../../components/Grid";
 import { Card, CardBody, CardHeader } from "../../../components/Card";
 
-const TeamsCard = ({ containerWidth, teamsData, filteredTeams = [] }) => {
+const TeamsCard = ({ containerWidth, teamsData, teamsLength }) => {
   const TeamCard = ({
     team: {
       id,
@@ -149,7 +149,7 @@ const TeamsCard = ({ containerWidth, teamsData, filteredTeams = [] }) => {
           <b>All Teams</b>
         </Box>
         <Box color="#7F7F7F">
-          Showing {filteredTeams.length} out of {teamsData.length} teams
+          Showing {teamsData.length} out of {teamsLength} teams
         </Box>
       </CardHeader>
       <CardBody wrap row>

@@ -30,7 +30,6 @@ const LoadingContainer = styled(Box)`
 `;
 
 const Loading = () => {
-  console.log("LOADING APPEARS");
   return (
     <LoadingContainer>
       <motion.svg

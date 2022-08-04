@@ -18,6 +18,12 @@ const BasicContainer = styled.div`
     props.justifyContent && `justify-content: ${props.justifyContent}`};
   ${(props) => props.flexDirection && `flex-direction: ${props.flexDirection}`};
 
+  ${(props) => props.border && `border: ${props.border}`};
+  ${(props) => props.borderTop && `border-top: ${props.borderTop}`};
+  ${(props) => props.borderRight && `border-right: ${props.borderRight}`};
+  ${(props) => props.borderBottom && `border-bottom: ${props.borderBottom}`};
+  ${(props) => props.borderLeft && `border-left: ${props.borderLeft}`};
+
   ${(props) => props.margin && `margin: ${props.margin}`};
   ${(props) => props.marginTop && `margin-top: ${props.marginTop}`};
   ${(props) => props.marginRight && `margin-right: ${props.marginRight}`};

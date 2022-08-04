@@ -1,19 +1,42 @@
-import { useContext } from "react";
-import { motion } from "framer-motion";
+import { useContext, useMemo, useState } from "react";
 
-import TeamsCard from "./components/TeamCard";
+import TeamsCard from "./components/TeamsCard";
+import TeamsMenu from "./components/TeamsMenu";
+import TeamsHeader from "./components/TeamsHeader";
 import ActivityCard from "./components/ActivityCard";
 
-import { Box, Row } from "../../components/Grid";
-import { AppContext } from "../../contexts/AppContext";
+import { Row } from "../../components/Grid";
 import Loading from "../../components/Loading";
-import SecondaryHeader from "../../components/SecondaryHeader";
+import { AppContext } from "../../contexts/AppContext";
+
+const ALL = "All";
+const FAVORITES = "Favorites";
+const ARCHIVED = "Archived";
+export const TABS = [ALL, FAVORITES, ARCHIVED];
 
 const Teams = () => {
+  const [searchedTeam, setSearchedTeam] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState(ALL);
+
   const { teams, activities, isLoading } = useContext(AppContext);
 
-  console.log(teams);
-  console.log(activities);
+  const filteredTeams = useMemo(() => {
+    let tempTeams = teams;
+
+    if (selectedCategories === FAVORITES) {
+      tempTeams = teams.filter(({ is_favorited }) => !!is_favorited);
+    } else if (selectedCategories === ARCHIVED) {
+      tempTeams = teams.filter(({ is_archived }) => !!is_archived);
+    }
+
+    if (!!searchedTeam) {
+      tempTeams = teams.filter(({ name }) =>
+        name.toLowerCase().includes(searchedTeam.toLowerCase())
+      );
+    }
+
+    return tempTeams;
+  }, [searchedTeam, teams, selectedCategories]);
 
   return (
     <>
@@ -21,48 +44,19 @@ const Teams = () => {
         <Loading />
       ) : (
         <>
-          <SecondaryHeader>
-            <Box padding="0px 24px">
-              <motion.button
-                style={{
-                  gap: "16px",
-                  border: "none",
-                  padding: "8px",
-                  display: "flex",
-                  flexDirection: "row",
-                  background: "#40D2BF",
-                  borderRadius: "4px",
-                }}
-                whileHover={{
-                  cursor: "pointer",
-                  opacity: 0.9,
-                  scale: 1.1,
-                }}
-              >
-                <Box>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      id="Shape"
-                      d="M10 0H6V6H0V10H6V16H10V10H16V6H10V0Z"
-                      fill="white"
-                    />
-                  </svg>
-                </Box>
-                <Box color="white">
-                  <b>CREATE NEW TEAM</b>
-                </Box>
-              </motion.button>
-            </Box>
-          </SecondaryHeader>
+          <TeamsHeader />
+          <TeamsMenu
+            setSearchedTeam={setSearchedTeam}
+            selectedCategories={selectedCategories}
+            setSelectedCategories={setSelectedCategories}
+          />
           <Row padding="24px" justifyContent="center" gap="24px">
             <>
-              <TeamsCard containerWidth="75%" teamsData={teams} />
+              <TeamsCard
+                containerWidth="75%"
+                teamsData={filteredTeams}
+                teamsLength={teams.length}
+              />
               <ActivityCard containerWidth="25%" activities={activities} />
             </>
           </Row>

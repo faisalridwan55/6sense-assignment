@@ -15,12 +15,7 @@ const SecondaryHeader = (porps) => {
   const printedLocation = usePrintedLocation();
   return (
     <>
-      <Card
-        style={{
-          boxShadow:
-            "rgb(0 0 0 / 5%) 0px 5px 4px, rgb(0 0 0 / 10%) 0px 10px 30px",
-        }}
-      >
+      <Card noShadow>
         <Row height="80px" justifyContent="space-between" alignItems="center">
           <Box padding="0px 24px">
             <Row gap="12px" alignItems="center">
