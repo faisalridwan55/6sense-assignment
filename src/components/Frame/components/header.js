@@ -108,14 +108,12 @@ const Header = (props) => {
                     right="-5px"
                     height="18px"
                     color="white"
+                    borderRadius="50%"
                     alignItems="center"
                     position="absolute"
+                    background="#2995DA"
                     justifyContent="center"
-                    style={{
-                      borderRadius: "50%",
-                      background: "#2995DA",
-                      border: "2px solid white",
-                    }}
+                    border="2px solid white"
                   >
                     {notificationsCount}
                   </Row>
@@ -127,9 +125,9 @@ const Header = (props) => {
                     src={avatar}
                     alt="avatar"
                     sizes="36px"
+                    borderRadius="50%"
                     style={{
                       width: "36px",
-                      borderRadius: "50%",
                       border: "1px solid rgba(0,0,0,.25)",
                     }}
                   />

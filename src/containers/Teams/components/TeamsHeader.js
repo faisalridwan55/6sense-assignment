@@ -13,28 +13,28 @@ const TeamsHeader = (props) => {
             border: "none",
             padding: "8px",
             display: "flex",
+            borderRadius: "4px",
             flexDirection: "row",
             background: "#40D2BF",
-            borderRadius: "4px",
           }}
           whileHover={{
-            cursor: "pointer",
-            opacity: 0.9,
             scale: 1.1,
+            opacity: 0.9,
+            cursor: "pointer",
           }}
         >
           <Box>
             <svg
               width="16"
               height="16"
-              viewBox="0 0 16 16"
               fill="none"
+              viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
                 id="Shape"
-                d="M10 0H6V6H0V10H6V16H10V10H16V6H10V0Z"
                 fill="white"
+                d="M10 0H6V6H0V10H6V16H10V10H16V6H10V0Z"
               />
             </svg>
           </Box>

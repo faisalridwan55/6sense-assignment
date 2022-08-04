@@ -38,14 +38,14 @@ const Loading = () => {
         fill="none"
         viewBox="0 0 38 32"
         xmlns="http://www.w3.org/2000/svg"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 1, repeat: Infinity }}
         style={{
           zIndex: 999,
           justifyContent: "center",
           alignItems: "center",
           display: "flex",
         }}
-        animate={{ rotate: 360 }}
-        transition={{ duration: 1, repeat: Infinity }}
       >
         <path
           fill="white"

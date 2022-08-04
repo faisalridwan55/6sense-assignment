@@ -56,6 +56,7 @@ const Teams = () => {
                 containerWidth="75%"
                 teamsData={filteredTeams}
                 teamsLength={teams.length}
+                selectedCategories={selectedCategories}
               />
               <ActivityCard containerWidth="25%" activities={activities} />
             </>

@@ -24,10 +24,10 @@ const Sidebar = () => {
 
   const IconContainer = (props) => (
     <Box
-      justifyContent="center"
-      alignItems="center"
       width="100%"
       height="80px"
+      alignItems="center"
+      justifyContent="center"
       style={isActive(props.ep) ? { background: "#2995DA" } : {}}
       {...props}
     />

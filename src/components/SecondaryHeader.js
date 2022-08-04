@@ -5,14 +5,15 @@ import { CampaignIcon, LeadsIcon, ReportIcon, TeamsIcon } from "./Icons";
 import usePrintedLocation from "../hooks/usePrintedLocation";
 
 const iconMapper = {
-  Campaign: <CampaignIcon color="#A4A6A8" />,
   Teams: <TeamsIcon color="#A4A6A8" />,
   Leads: <LeadsIcon color="#A4A6A8" />,
   Report: <ReportIcon color="#A4A6A8" />,
+  Campaign: <CampaignIcon color="#A4A6A8" />,
 };
 
 const SecondaryHeader = (porps) => {
   const printedLocation = usePrintedLocation();
+
   return (
     <>
       <Card noShadow>

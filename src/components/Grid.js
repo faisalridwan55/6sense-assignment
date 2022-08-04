@@ -20,15 +20,16 @@ const BasicContainer = styled.div`
 
   ${(props) => props.border && `border: ${props.border}`};
   ${(props) => props.borderTop && `border-top: ${props.borderTop}`};
+  ${(props) => props.borderLeft && `border-left: ${props.borderLeft}`};
   ${(props) => props.borderRight && `border-right: ${props.borderRight}`};
   ${(props) => props.borderBottom && `border-bottom: ${props.borderBottom}`};
-  ${(props) => props.borderLeft && `border-left: ${props.borderLeft}`};
+  ${(props) => props.borderRadius && `border-radius: ${props.borderRadius}`};
 
   ${(props) => props.margin && `margin: ${props.margin}`};
   ${(props) => props.marginTop && `margin-top: ${props.marginTop}`};
+  ${(props) => props.marginLeft && `margin-left: ${props.marginLeft}`};
   ${(props) => props.marginRight && `margin-right: ${props.marginRight}`};
   ${(props) => props.marginBottom && `margin-bottom: ${props.marginBottom}`};
-  ${(props) => props.marginLeft && `margin-left: ${props.marginLeft}`};
 
   ${(props) => props.top && `top: ${props.top}`};
   ${(props) => props.left && `left: ${props.left}`};
