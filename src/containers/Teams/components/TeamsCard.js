@@ -25,6 +25,14 @@ const TeamsCard = ({
     const rowStyle = { padding: "8px" };
     const footStyle = { opacity: 0.45, fontSize: "14px" };
     const svgStyle = { whileHover: { scale: 1.3, cursor: "pointer" } };
+    const campsLeadsStyle = {
+      gap: "4px",
+      as: motion.div,
+      whileHover: {
+        cursor: "pointer",
+        color: "#0083E3",
+      },
+    };
 
     return (
       <Box key={id} borderRadius="4px" width="270px" border="1px solid #E4E7EC">
@@ -55,7 +63,7 @@ const TeamsCard = ({
                 viewBox="0 0 17 16"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
+                <motion.path
                   fill="#F8CE43"
                   id="star active"
                   d="M11.8605 15.1543L8.00054 13.1252L4.14054 15.1543C3.41354 15.5413 2.54854 14.9193 2.68954 14.1003L3.42654 9.80125L0.302542 6.75725C-0.291458 6.17725 0.0395418 5.17025 0.857542 5.05125L5.17354 4.42425L7.10454 0.51225C7.44054 -0.17075 8.56154 -0.17075 8.89754 0.51225L10.8285 4.42325L15.1445 5.05025C15.9625 5.16925 16.2925 6.17625 15.6995 6.75625L12.5755 9.80125L13.3125 14.1003C13.4535 14.9233 12.5865 15.5363 11.8605 15.1543Z"
@@ -70,7 +78,7 @@ const TeamsCard = ({
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
+                <motion.path
                   opacity="0.3"
                   fill="#444444"
                   fillRule="evenodd"
@@ -86,7 +94,7 @@ const TeamsCard = ({
         </Row>
         <Row {...rowStyle} style={{ gap: "8px" }}>
           <Box>
-            <Row style={{ gap: "4px" }}>
+            <Row {...campsLeadsStyle}>
               <svg
                 width="16"
                 height="15"
@@ -106,7 +114,7 @@ const TeamsCard = ({
             </Row>
           </Box>
           <Box>
-            <Row style={{ gap: "4px" }}>
+            <Row {...campsLeadsStyle}>
               <svg
                 width="16"
                 height="14"
