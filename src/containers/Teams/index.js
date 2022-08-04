@@ -24,13 +24,13 @@ const Teams = () => {
     let tempTeams = teams;
 
     if (selectedCategories === FAVORITES) {
-      tempTeams = teams.filter(({ is_favorited }) => !!is_favorited);
+      tempTeams = tempTeams.filter(({ is_favorited }) => !!is_favorited);
     } else if (selectedCategories === ARCHIVED) {
-      tempTeams = teams.filter(({ is_archived }) => !!is_archived);
+      tempTeams = tempTeams.filter(({ is_archived }) => !!is_archived);
     }
 
     if (!!searchedTeam) {
-      tempTeams = teams.filter(({ name }) =>
+      tempTeams = tempTeams.filter(({ name }) =>
         name.toLowerCase().includes(searchedTeam.toLowerCase())
       );
     }

@@ -149,9 +149,11 @@ const TeamsCard = ({
         </Box>
       </CardHeader>
       <CardBody wrap row>
-        {teamsData.map((team) => {
-          return <TeamCard key={team.id} team={team} />;
-        })}
+        {teamsData.length
+          ? teamsData.map((team) => {
+              return <TeamCard key={team.id} team={team} />;
+            })
+          : "No Teams Found"}
       </CardBody>
     </Card>
   );
