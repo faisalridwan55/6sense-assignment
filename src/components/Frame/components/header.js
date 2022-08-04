@@ -137,7 +137,17 @@ const Header = (props) => {
                     }}
                   />
                 </Box>
-                <Box>
+                <Box
+                  as={motion.div}
+                  width="19px"
+                  height="19px"
+                  justifyContent="center"
+                  alignItems="center"
+                  whileHover={{
+                    cursor: "pointer",
+                    backgroundColor: "rgba(0,0,0,.05)",
+                  }}
+                >
                   <DropDownIcon />
                 </Box>
               </Row>
